@@ -7,6 +7,11 @@ public class SensorData {
     private double valor;
     private Date regitst_time;
 
+    public SensorData(double valor, Date regitst_time) {
+        this.valor = valor;
+        this.regitst_time = regitst_time;
+    }
+
     public SensorData(int id,double valor, Date regitst_time) {
         this.id = id;
         this.valor = valor;

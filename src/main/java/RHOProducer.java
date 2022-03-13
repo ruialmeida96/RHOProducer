@@ -1,13 +1,9 @@
-import Model.JSONSerializer;
-import Model.KafkaJsonSerializer;
+import Serializer.JSONSerializer;
 import Model.SensorData;
 import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.common.protocol.types.Field;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.apache.kafka.common.serialization.Serializer;
 
 import java.util.Date;
 import java.util.Properties;
@@ -57,10 +53,10 @@ public class RHOProducer {
 
         KafkaProducer<String,SensorData> producer = new KafkaProducer<String,SensorData>(props);
 
-        for(int i=1;i<=5;i++){
-            SensorData _sensor = new SensorData(i,1.111, new Date(System.currentTimeMillis()));
+        for(int i=30;i<=31;i++){
+            SensorData _sensor = new SensorData(1.111, new Date(System.currentTimeMillis()));
 
-            ProducerRecord<String,SensorData> record = new ProducerRecord<String,SensorData>("teste","1",_sensor);
+            ProducerRecord<String,SensorData> record = new ProducerRecord<String,SensorData>("testeSensorData","1",_sensor);
 
             producer.send(record);
 

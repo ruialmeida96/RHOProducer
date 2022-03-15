@@ -2,6 +2,8 @@ package Utils;
 
 import org.apache.kafka.common.protocol.types.Field;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.DecimalFormat;
@@ -33,7 +35,7 @@ public class Utils {
         return random.nextInt(max - min) + min;
     }
 
-    public static double returnRandomDouble(int min, int max) {
+    /*public static double returnRandomDouble(int min, int max) {
         double valor = min + (max - min) * random.nextDouble();
         String str = decimalFormat.format(valor);
         try {
@@ -44,5 +46,12 @@ public class Utils {
         return 0;
         //return Double.parseDouble(decimalFormat.format(valor));
         //return Double.parseDouble(String.format("%.3f", valor));
+    }*/
+    public static double returnRandomDouble(int min, int max) {
+        double valor = min + (max - min) * random.nextDouble();
+        BigDecimal bd = BigDecimal.valueOf(valor).setScale(3,RoundingMode.HALF_UP);
+        //bd = bd.setScale(3);
+        return bd.doubleValue();
     }
+
 }

@@ -71,8 +71,6 @@ public class RHOProducer {
             producer.close();
         }
 
-
-
         /*for(int i=0;i<50;i++){
             //SensorData _sensor = new SensorData(1.111, new Date(System.currentTimeMillis()));
 
